@@ -1,0 +1,145 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+  
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ breadcrumb ] start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <div class="page-header-title">
+                                            <h5 class="m-b-10">Initiate Month</h5>
+                                        </div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Initiate Month</a></li>
+                                            
+                                         
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ breadcrumb ] end -->
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <!-- [ fixed-layout ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                          
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">User</label>
+                                                    <input class="form-control bg-transparent py-2 border" type="date" value="date1" id="example-input">
+                                                    
+                                                </div>
+                                            </div>
+                                         
+                                          
+                                         
+                                           
+                                            
+                                            <div class="col-md-6"><button class="btn  btn-primary m-t-28" type="submit">Month</button> <button type="button" class="btn btn-primary m-t-28"><i class="feather mr-2 icon-user-check"></i>Add</button> <button type="button" class="btn btn-primary m-t-28"><i class="feather mr-2 icon-check-circle"></i>Active</button> <button type="button" class="btn btn-primary m-t-28"><i class="feather mr-2 icon-clipboard"></i>Set BenchMark</button></div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ fixed-layout ] end -->
+                        </div>
+                        <div class="row">
+
+                            <!-- [ basic-table ] start -->
+<div class="col-md-12">
+ <div class="card">
+     <div class="card-header">
+         <h5>Basic Table</h5>
+         
+     </div>
+     <div class="card-body table-border-style">
+         <div class="table-responsive">
+             <table class="table">
+                 <thead>
+                     <tr>
+                         <th>#</th>
+                         <th>First Name</th>
+                         <th>Last Name</th>
+                         <th>Username</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>1</td>
+                         <td>Mark</td>
+                         <td>Otto</td>
+                         <td>@mdo</td>
+                     </tr>
+                     <tr>
+                         <td>2</td>
+                         <td>Jacob</td>
+                         <td>Thornton</td>
+                         <td>@fat</td>
+                     </tr>
+                     <tr>
+                         <td>3</td>
+                         <td>Larry</td>
+                         <td>the Bird</td>
+                         <td>@twitter</td>
+                     </tr>
+                 </tbody>
+             </table>
+         </div>
+     </div>
+ </div>
+</div>
+<!-- [ basic-table ] end -->
+                     </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>

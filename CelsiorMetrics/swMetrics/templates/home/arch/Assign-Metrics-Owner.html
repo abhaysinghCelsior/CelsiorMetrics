@@ -1,0 +1,135 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+  
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ breadcrumb ] start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <div class="page-header-title">
+                                            <h5 class="m-b-10">Assign Metrics Owner</h5>
+                                        </div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Assign Metrics Owner</a></li>
+                                            
+                                         
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ breadcrumb ] end -->
+                        <!-- [ Main Content ] start -->
+			<form method="POST" enctype='multipart/form-data' action=""novalidate> 
+    			{% csrf_token %}
+			{{ form.as_p }}
+			{{ form.errors }}
+    			{{ form.non_field_errors }}
+                        <div class="row">
+                            <!-- [ fixed-layout ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <form>
+                                                    <div class="form-group">
+							<label for="exampleFormControlSelect1">Project</label>
+							<select id="Project" name="Project" ;">
+								{% for Project in PRJ_CHOICES %}
+		     							<option value="{{ Project }}">{{ Project }}</option>
+									{% endfor %}
+                						</select>
+								<input type="submit" value="Project">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <form>
+                         
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1">User</label>
+								<select id="USER" name="USER" ;">
+									{% for USR in USER_CHOICES %}
+		     								<option value="{{ USR }}">{{ USR }}</option>
+									{% endfor %}
+                						</select>
+							<input type="submit" value="USER">
+                                                    </div>
+                                                  
+                                                </form>
+                                            </div>
+                                            
+                                            <div class="col-md-3"><button class="btn  btn-primary m-t-28" id="Assign"  name="Assign" value="Assign" type="submit">Assign</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ fixed-layout ] end -->
+                        </div>
+                        <div class="row">
+
+                            <!-- [ basic-Data ] start -->
+                        <div class="col-md-12">
+                        <div class="card">
+                        <div class="card-header">
+                        <h5>Basic Data</h5>
+                        
+                        </div>
+                        <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                        
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- [ basic-Data ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <form method="POST" enctype='multipart/form-data' action=""novalidate> 
+            {% csrf_token %}
+            {{ form.as_p }}
+            {{ form.non_field_errors }}
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <!-- <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Dashboard Analytics</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <!-- order-card start -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-c-blue order-card">
+                        <div class="card-body">
+                            <h5 class="text-white">Total Projects</h5>
+                            <h2 class="m-b-0"><span class="float-right">{{request.session.PROJECT_COUNT}}</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-c-green order-card">
+                        <div class="card-body">
+			    <h5 href="{% url 'swMetrics:AssignRole' %}">Total Metrics</h5>
+                            <h2 class="text-right text-white"><i class="feather icon-tag float-left"></i><span>{{request.session.METRICS_COUNT}}</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-c-yellow order-card">
+                        <div class="card-body">
+                            <h5 class="text-white">Total Users</h5>
+                            <h2 class="text-right text-white"><i class="feather icon-repeat float-left"></i><span>{{request.session.USER_COUNT}}</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-c-red order-card">
+                        <div class="card-body">
+                            <h5 class="text-white">Current Month</h5>
+                            <h2 class="text-right text-white"><i class="feather icon-award float-left"></i><span>{{request.session.MONTH}}</span></h2>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+
+
+
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                    {% if message.tags == 'success'%}
+                        <span class="alert-S">
+                            {{message}}
+                        </span>
+                    {% elif message.tags == 'info'%}
+                        <span class="alert-I">
+                            {{message}}
+                        </span>
+                    {% elif message.tags == 'warning'%}
+                        <span class="alert-W">
+                            {{message}}
+                        </span>
+                    {% elif message.tags == 'error'%}
+                        <span class="alert-E">
+                            {{message}}
+                        </span>
+                    {% endif %}
+            {% endfor %}
+        {% endif %}
+        </form>
+    </div>
+
+
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}

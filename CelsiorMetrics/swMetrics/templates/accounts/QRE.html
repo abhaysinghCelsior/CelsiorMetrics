@@ -1,0 +1,149 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+  
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ breadcrumb ] start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <div class="page-header-title">
+                                            <h5 class="m-b-10">Assign Role</h5>
+                                        </div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Assign Role</a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Assign Role to Generate Metrics</a></li>
+                                         
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ breadcrumb ] end -->
+                       	<form method="POST" enctype='multipart/form-data' action=""novalidate> 
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {{ form.errors }}
+                        {{ form.non_field_errors }}
+                        <div class="row">
+                            <!-- [ fixed-layout ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">                                            
+                                                    <div class="form-group">
+                                                        <label for="QA_Defects">QA Defects</label>
+                                                        <input type="text" placeholder='QA_Defects' name='QA_Defects' value='0' required>
+                                                    </div>
+                                            </div>
+                                            <div class="col-md-3">                                            
+                                                <div class="form-group">
+                                                    <label for="After_QA_Defects">After-QA Defects</label>
+                                                    <input type="text" placeholder='After_QA_Defects' name='After_QA_Defects'  value='0' required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">                                            
+                                                <div class="form-group">
+                                                    <label for="Remarks">Remarks</label>
+                                                    <input type="text"  id='big-text-box'  placeholder='Remarks' name='Remarks'  value='' >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3"><button class="btn  btn-primary m-t-28" id="QRE" type="submit" name="QRE" value="QRE">Save</button></div>
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                        {% if message.tags == 'success'%}
+                                                            <span class="alert-S">
+                                                                {{message}}
+                                                            </span>
+                                                        {% elif message.tags == 'info'%}
+                                                            <span class="alert-I">
+                                                                {{message}}
+                                                            </span>
+                                                        {% elif message.tags == 'warning'%}
+                                                            <span class="alert-W">
+                                                                {{message}}
+                                                            </span>
+                                                        {% elif message.tags == 'error'%}
+                                                            <span class="alert-E">
+                                                                {{message}}
+                                                            </span>
+                                                        {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                            
+                                            
+	
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+			    </div>
+
+			    </form>
+                            <!-- [ fixed-layout ] end -->
+                        
+                        <div class="row">
+
+                            <!-- [ basic-Data ] start -->
+                        <div class="col-md-12">
+                        <div class="card">
+                        <div class="card-header">
+                        <h5>Basic Data</h5>
+                        
+                        </div>
+                        <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                        
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- [ basic-Data ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>

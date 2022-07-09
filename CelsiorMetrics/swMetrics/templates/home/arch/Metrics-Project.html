@@ -1,0 +1,155 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Assign Metrics {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+  
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ breadcrumb ] start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <div class="page-header-title">
+                                            <h5 class="m-b-10">Assign Metrics</h5>
+                                        </div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Metrics Project</a></li>
+                                            <li class="breadcrumb-item"><a href="#!">Assign Metrics</a></li>
+                                         
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ breadcrumb ] end -->
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <!-- [ fixed-layout ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <form>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1">Client</label>
+                                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                  
+                                                </form>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <form>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1">MasterProject</label>
+                                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                  
+                                                </form>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <form>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1">Project</label>
+                                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                  
+                                                </form>
+                                            </div>
+                                           
+                                            <div class="col-md-3 form-group">
+                                                <label for="exampleFormControlTextarea1">Metrics</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                
+                                            </div>
+                                            <div class="col-md-3"><button class="btn  btn-primary m-t-28" type="submit">Assign</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ fixed-layout ] end -->
+                        </div>
+                        <div class="row">
+
+                            <!-- [ basic-Data ] start -->
+                        <div class="col-md-12">
+                        <div class="card">
+                        <div class="card-header">
+                        <h5>Basic Data</h5>
+                        
+                        </div>
+                        <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                        
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- [ basic-Data ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>

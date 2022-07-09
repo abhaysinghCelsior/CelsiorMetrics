@@ -1,0 +1,75 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+  
+<form method="POST" enctype='multipart/form-data' action=""novalidate> 
+    	{% csrf_token %}
+	{{ form.as_p }}
+	{{ form.errors }}
+    	{{ form.non_field_errors }}
+    	<h1>Assign Role to Generate Metrics</h1>
+	<div class="formcontainer">
+	   <div class="container">
+              <table>
+		<tr>
+			<td>
+				<select id="USER" name="USER" class="G-dropdown"  style="width:120px;">
+					{% for USR in USER_CHOICES %}
+		     				<option value="{{ USR }}">{{ USR }}</option>
+					{% endfor %}
+                		</select>
+				<input type="submit" value="USER">
+			</td>
+			<td><button id="Assign" type="submit" name="Assign" value="Assign"><strong>Assign</strong></button></td>
+		</tr>
+		</table>
+		{% if messages %}
+        	{% for message in messages %}
+            		{% if message.tags == 'success'%}
+                		<h2>{{message}}<h2>
+            		{% elif message.tags == 'info'%}
+                		<h2>{{message}}<h2>
+            		{% elif message.tags == 'warning'%}
+                		<h2>{{message}}<h2>
+            		{% elif message.tags == 'error'%}
+                		<h2>{{message}}<h2>
+            		{% endif %}
+        	{% endfor %}
+    		{% endif %}
+	
+	  </div>
+	</div>
+	<br>
+    	<a href="http://127.0.0.1:8000/swMetrics/home_pmo">Go Back To Home</a>
+    </form>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>

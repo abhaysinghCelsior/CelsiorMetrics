@@ -1,0 +1,103 @@
+
+	{% load get_PRJ_ONLY %}
+	<!-- [ navigation menu ] start -->
+	<form method="POST" enctype='multipart/form-data' action=""novalidate> 
+		{% csrf_token %}
+		{{ form.as_p }}
+		{{ form.errors }}
+		{{ form.non_field_errors }}
+	{% if request.session.Role == 'PMO' %}
+		<nav class="pcoded-navbar menupos-fixed menu-light ">
+			<div class="navbar-wrapper  ">
+				<div class="navbar-content scroll-div " >
+					<ul class="nav pcoded-inner-navbar ">
+						
+						<li class="nav-item">
+							<a href="/" class="nav-link ">
+								<span class="pcoded-micon">
+									<i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+						</li>
+
+
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:AssignMetrics' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-monitor"></i></span><span class="pcoded-mtext">Metrics Project</span></a>
+						
+						</li>
+	
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:AssignRole' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Assign Role</span></a>
+						
+						</li>
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:AssignMetricsOwner' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-wind"></i></span><span class="pcoded-mtext">Assign Metrics Owner</span></a>
+						
+						</li>
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:InitiateMonth' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-paperclip"></i></span><span class="pcoded-mtext">Initiate Month</span></a>
+						
+						</li>
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:FreezeMonth' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Freeze Month</span></a>
+						
+						</li>
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:GenerateReport' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Generate Report</span></a>
+						
+						</li>
+
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:home' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-monitor"></i></span><span class="pcoded-mtext">Home</span></a>
+						</li>
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:ContactUs' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-monitor"></i></span><span class="pcoded-mtext">ContactUs</span></a>
+						</li>
+					</ul>
+				
+				</div>
+			</div>
+		</nav>
+	{% elif request.session.Role == 'PM' %}
+	<nav class="pcoded-navbar menupos-fixed menu-light ">
+		<div class="navbar-wrapper  ">
+			<div class="navbar-content scroll-div " >
+				<ul class="nav pcoded-inner-navbar ">
+						{% for key, value in request.session.MAT_LIST.items %}
+							<li class="nav-item ">
+								<a href={{key}} class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{ key|get_PRJ_ONLY:"2" }}</span></a>
+							</li>
+							{% for K in value %}
+								<li class="nav-item ">
+									{% if K == 'AUTE'%}
+										<a href="{% url 'swMetrics:AUTE' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{K}}</span></a>
+									{% elif K == 'EV'%}
+										<a href="{% url 'swMetrics:EV' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{K}}</span></a>
+									{% elif K == 'OTD'%}
+										<a href="{% url 'swMetrics:OTD' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{K}}</span></a>
+									{% elif K == 'QRE'%}
+										<a href="{% url 'swMetrics:QRE' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{K}}</span></a>
+									{% elif K == 'WCRE'%}
+										<a href="{% url 'swMetrics:WCRE' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{K}}</span></a>
+									{% elif K == 'WDD'%}
+										<a href="{% url 'swMetrics:WDD' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">{{K}}</span></a>
+										<a href="{% url 'swMetrics:DefectSummaryData' PRJ_KEY=key %}"  class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">DefectSummaryData</span></a>
+									{% endif %}
+									
+									
+								</li>
+							{% endfor %}
+						{% endfor %}
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:home' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-monitor"></i></span><span class="pcoded-mtext">Home</span></a>
+						</li>
+						<li class="nav-item ">
+							<a href="{% url 'swMetrics:ContactUs' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-monitor"></i></span><span class="pcoded-mtext">ContactUs</span></a>
+						</li>
+				</ul>
+			
+			</div>
+		</div>
+	</nav>
+	{% endif %}
+
+	</form>
+    <!-- [ navigation menu ] end -->

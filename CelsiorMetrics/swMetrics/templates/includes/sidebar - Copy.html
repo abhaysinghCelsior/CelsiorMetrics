@@ -1,0 +1,50 @@
+
+	<!-- [ navigation menu ] start -->
+	<nav class="pcoded-navbar menupos-fixed menu-light ">
+		<div class="navbar-wrapper  ">
+			<div class="navbar-content scroll-div " >
+				<ul class="nav pcoded-inner-navbar ">
+					
+					<li class="nav-item">
+					    <a href="/" class="nav-link ">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+					</li>
+
+
+					<li class="nav-item ">
+					    <a href="{% url 'swMetrics:AssignMetrics' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-monitor"></i></span><span class="pcoded-mtext">Metrics Project</span></a>
+					  
+					</li>
+ 
+					<li class="nav-item ">
+					    <a href="{% url 'swMetrics:AssignRole' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Assign Role</span></a>
+					  
+					</li>
+					<li class="nav-item ">
+					    <a href="{% url 'swMetrics:AssignMetricsOwner' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-wind"></i></span><span class="pcoded-mtext">Assign Metrics Owner</span></a>
+					  
+					</li>
+					<li class="nav-item ">
+					    <a href="{% url 'swMetrics:InitiateMonth' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-paperclip"></i></span><span class="pcoded-mtext">Initiate Month</span></a>
+					  
+					</li>
+					<li class="nav-item ">
+					    <a href="{% url 'swMetrics:FreezeMonth' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Freeze Month</span></a>
+					  
+					</li>
+					<li class="nav-item ">
+					    <a href="{% url 'swMetrics:GenerateReport' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Generate Report</span></a>
+					  
+					</li>
+
+
+
+		
+			
+				</ul>
+			
+			</div>
+		</div>
+	</nav>
+    <!-- [ navigation menu ] end -->

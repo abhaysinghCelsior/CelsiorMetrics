@@ -1,0 +1,144 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}	
+
+  
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ breadcrumb ] start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <div class="page-header-title">
+                                            <h5 class="m-b-10">About Metrics</h5>
+                                        </div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="#!">About Metrics</a></li>
+                                            <li class="breadcrumb-item"><a href="#!">About Metrics</a></li>
+                                         
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ breadcrumb ] end -->
+                       	<form method="POST" enctype='multipart/form-data' action=""novalidate> 
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {{ form.errors }}
+                        {{ form.non_field_errors }}
+                        <div class="row">
+                            <!-- [ fixed-layout ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                        <p> 
+                                            <b>Weighted Defect Density(WDD)</b>
+                                            Measures the quality of development-Weighted defects per hour of development
+                                            <br>
+                                            WDD = (5*No of Critical Defects+3*No of High Defects+1*No of Med defects+0.5*No of Low defects) / Development Effort (Hrs.)  Benchmark:0.025 weighted defects per hour
+                                        </p>
+                                        <p>
+                                            <b>On Time Delivery (OTD)</b> 
+                                            Measures the percentage of deliveries on time
+                                            <br>
+                                            OTD = (Total Number of tasks delivered on time/ Total Number of tasks delivered)  Benchmark: 95%
+                                        </p>
+                                        <p>
+                                            <b></b>Weighted Code Review effectiveness(WCRE)</b>  
+                                           Measures how strictly the Code Review process has been followed in terms of % of files reviewed and % of review comments incorporated 
+                                           <br>
+                                            WCRE=5*(Total number of Files Reviewed/Total Number of files changed)*(Total review comments incorporated/ Total Number of review comments)  Benchmark: 4.0 %
+                                        </p>
+                                        <p>
+                                            <b>QA removal efficiency (QRE)</b>   
+                                           Measure of the QA team’s ability to remove defects prior to release 
+                                           <br>
+                                            QRE = (Defects removed during QA Testing phase/ Total number of defect raised) X 100  Benchmark: 94%
+                                        </p>
+                                        <p>
+                                            <b>Automated Unit Testing Effectiveness (AUTE)</b>   
+                                           Measures effectiveness of unit testing in terms of unit testing coverage and Unit test case passed % 
+                                           <br>
+                                            AUTE= 5* (Unit Testing Coverage %) * (% of Unit test cases passed) Benchmark: 4.0
+                                        </p>
+                                        <p>
+                                            <b>Effort Variance(EV)</b>   
+                                           Measures effort taken to complete the task in comparison to effort planned 
+                                           <br>
+                                            EV=( Actual Effort-Planned Effort)/Planned Effort  Benchmark: 5% 
+                                       
+                                        </p>
+	
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+			    </div>
+
+			    </form>
+                            <!-- [ fixed-layout ] end -->
+                        
+                        <div class="row">
+
+                            <!-- [ basic-Data ] start -->
+                        <div class="col-md-12">
+                        <div class="card">
+                        <div class="card-header">
+                        <h5>Basic Data</h5>
+                        
+                        </div>
+                        <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                        
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- [ basic-Data ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>
