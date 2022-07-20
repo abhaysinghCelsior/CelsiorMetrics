@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/f78b5179-cc06-40d8-b717-ee93fb3b34a4/microsoft.web/sites/subscriptions/f78b5179-cc06-40d8-b717-ee93fb3b34a4/resourceGroups/CelsiorMetricsRes/providers/Microsoft.Web/sites/CelsiorMetrics",
+    "appService.deploySubpath": "."
+}
